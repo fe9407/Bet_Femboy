@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a0e2a;
+    color: #ffffff;
+    display: flex;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #3b0a57;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #ff66c4;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    cursor: pointer;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login {
+    background-color: transparent;
+    color: #ff66c4;
+    border: 1px solid #ff66c4;
+}
+
+.register {
+    background-color: #ff66c4;
+    color: #1a0e2a;
+}
+
+aside {
+    width: 220px;
+    background-color: #290a3d;
+    padding: 90px 20px 20px 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+aside h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #ffc8ff;
+}
+
+main {
+    margin-left: 240px;
+    margin-top: 90px;
+    padding: 20px;
+    width: calc(100% - 240px);
+}
+
+.banner {
+    background: linear-gradient(90deg, #3b0a57, #5e2b7f);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.banner h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff66c4;
+}
+
+.banner p {
+    margin-bottom: 20px;
+}
+
+.play-now {
+    background-color: #ff66c4;
+    color: #1a0e2a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    padding: 10px 15px;
+    background-color: #290a3d;
+    border: 1px solid #ff66c4;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ff66c4;
+    transition: background-color 0.3s;
+}
+
+.categories button:hover {
+    background-color: #ff66c4;
+    color: #1a0e2a;
+}
+
+.games {
+    background-color: #290a3d;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.games h2 {
+    margin-bottom: 20px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.game {
+    background-color: #5e2b7f;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.game:hover {
+    background-color: #ff66c4;
+    color: #1a0e2a;
+}
+
+/* Redirecionamento para quiz */
+.game:has(h3:contains("Fortune Tiger")) {
+    cursor: pointer;
+}
+
+.game h3 {
+    pointer-events: none;
+}
+
+/* Garante que o clique funciona */
+.game[data-game="fortune"] {
+    cursor: pointer;
+}

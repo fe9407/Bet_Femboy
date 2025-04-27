@@ -1,0 +1,147 @@
+body {
+  background-color: #1a1a2e;
+  color: #f8d5ff;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff8ee2;
+  text-shadow: 0 0 10px #ff8ee2;
+}
+
+.stats {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Comic Neue', cursive;
+  box-shadow: 0 0 10px #ff9de5;
+  backdrop-filter: blur(4px);
+}
+
+.slot-machine {
+  display: inline-block;
+  margin: 20px auto;
+  text-align: center; /* garante centralização interna */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.reel {
+  width: 80px;
+  height: 80px;
+  background: #2f2f46;
+  margin: 5px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #f8d5ff;
+}
+
+.reel-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.reel-container.glow {
+  animation: glitter-glow 0.8s ease-out infinite alternate;
+  box-shadow: 0 0 20px 5px #ff99ff, 0 0 40px 10px #99ccff;
+}
+
+@keyframes glitter-glow {
+  0% { box-shadow: 0 0 10px #ff99ff; }
+  100% { box-shadow: 0 0 20px #99ccff; }
+}
+
+button {
+  margin-top: 20px;
+  background: linear-gradient(45deg, #ff8ee2, #ffa3e0);
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 0 10px #ffb3f7;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.trophy-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: gold;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 8px #ffc;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background-color: #1a1a2e;
+  border-right: 2px solid #1a1a2e;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.4em;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  font-size: 0.95em;
+  color: #ed00fa;
+}
+
+.sidebar li.locked {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+
+#result {
+  font-size: 20px;
+  margin-top: 10px;
+}

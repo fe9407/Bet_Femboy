@@ -1,0 +1,87 @@
+body {
+    background: linear-gradient(135deg, #ffb6f9, #c9c9ff, #b3f8ff);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  header {
+    background-color: #8a2be2;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #ffe4fa;
+    text-shadow: 2px 2px #ff69b4;
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  
+  .table {
+    background-color: #682dbd;
+    border: 3px solid #ff69b4;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px #ff69b4;
+  }
+  
+  .hand {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background: white;
+    color: black;
+    font-size: 3rem;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ff69b4;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  .card.selected {
+    box-shadow: 0px 0px 20px #00f0ff;
+    transform: scale(1.1) rotate(-5deg);
+  }
+  
+  #deal-button, #draw-button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 10px;
+  }
+  
+  #deal-button:hover, #draw-button:hover {
+    background-color: #ff85c1;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px #000;
+  }
+
+  .coins {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ffe4fa;
+    text-shadow: 1px 1px #ff69b4;
+  }
