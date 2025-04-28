@@ -145,3 +145,24 @@ button:hover {
   font-size: 20px;
   margin-top: 10px;
 }
+
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra */
+}
+
+/* Estiliza o fundo da barra */
+::-webkit-scrollbar-track {
+  background: #2c2c4a; /* Cor do fundo da barra */
+  border-radius: 10px;
+}
+
+/* Estiliza a parte que arrasta */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c084fc, #a855f7); /* Gradiente roxo */
+  border-radius: 10px;
+}
+
+/* Se quiser mudar a cor quando passa o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d8b4fe, #c084fc);
+}

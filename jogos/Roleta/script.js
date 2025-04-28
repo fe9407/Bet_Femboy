@@ -12,6 +12,8 @@ let plays = 0;
 let lineWins = 0;
 let jackpots = 0;
 let losses = 0;
+let currentChance = 70;
+let currentBet = 50;
 
 const clickSound = document.getElementById("click-sound");
 const winSound = document.getElementById("win-sound");
@@ -61,16 +63,21 @@ function updateStatsDisplay() {
   document.getElementById("losses").textContent = losses;
 }
 
+function setChance(chance, bet) {
+  currentChance = chance;
+  currentBet = bet;
+  spin(); // Já gira assim que escolhe!
+}
 function spin() {
   const result = document.getElementById("result");
 
-  if (coins < 50) {
+  if (coins < currentBet) {
     result.textContent = "❌ Sem moedas suficientes!";
     return;
   }
 
   clickSound.play();
-  coins -= 50;
+  coins -= currentBet;
   updateCoins();
   result.textContent = "";
 
@@ -87,7 +94,14 @@ function spin() {
 
   setTimeout(() => {
     for (let i = 0; i < reels.length; i++) {
-      let symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      let symbol;
+      // Aplica chance de vitória
+      if (Math.random() * 100 < currentChance) {
+        // Mais chance de sair igual nos três primeiros
+        symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      } else {
+        symbol = symbols[Math.floor(Math.random() * symbols.length)];
+      }
       reels[i].innerHTML = `<img src="${symbol.img}" class="reel-img">`;
       values.push(symbol.name);
     }
@@ -100,8 +114,8 @@ function spin() {
     const allEqual = values.every(v => v === values[0]);
 
     if (allEqual) {
-      result.textContent = "🌈 JACKPOT! Você ganhou 1000 moedas! ✨";
-      coins += 1000;
+      result.textContent = `🌈 JACKPOT! Você ganhou ${currentBet * 20} moedas! ✨`;
+      coins += currentBet * 200;
       jackpots++;
       winSound.play();
       playConfetti();
@@ -110,10 +124,9 @@ function spin() {
       values.slice(0, 3).every(v => v === values[0]) ||
       values.slice(3, 6).every(v => v === values[3])
     ) {
-      result.textContent = "🎉 Linha igual! +100 moedas!";
-      coins += 100;
+      result.textContent = `🎉 Linha igual! +${currentBet * 2} moedas!`;
+      coins += currentBet * 2;
       lineWins++;
-      isLineWin = true;
       winSound.play();
       playConfetti();
       container.classList.add("glow");
@@ -124,10 +137,9 @@ function spin() {
 
     updateCoins();
     updateStatsDisplay();
-    saveGameData(); // 💾 Salva após a rodada
+    saveGameData();
     checkAchievements();
 
-    // Remove o brilho após 2 segundos
     setTimeout(() => {
       container.classList.remove("glow");
     }, 2000);
@@ -136,10 +148,23 @@ function spin() {
 
 const achievements = [
   { id: 'firstPlay', name: 'Primeira Jogada', desc: 'Dê seu primeiro spin', condition: () => plays >= 1 },
+
+  // 🆕 Conquistas de número de giros
+  { id: 'tenPlays', name: 'Femboy iniciante', desc: 'Jogue 100 vezes', condition: () => plays >= 100 },
+  { id: 'tenPlays', name: 'Femboy intermediário', desc: 'Jogue 500 vezes', condition: () => plays >= 500 },
+  { id: 'mestreFemboy', name: 'Mestre Femboy', desc: 'Alcance 1000 giros', condition: () => plays >= 1000 },
+  { id: 'hyperFemboy', name: 'Hyper Femboy', desc: 'Alcance 2000 giros', condition: () => plays >= 2000 },
+  { id: 'ultraMasterFemboy', name: 'Ultra Master Femboy', desc: 'Alcance 10000 giros', condition: () => plays >= 10000 },
+
+  // 🆕 Conquistas de jackpot por personagem
   { id: 'firstLineWin', name: 'Linha Premiada', desc: 'Ganhe sua primeira linha', condition: () => lineWins >= 1 },
   { id: 'firstJackpot', name: 'JACKPOT!', desc: 'Ganhe seu primeiro jackpot', condition: () => jackpots >= 1 },
-  { id: 'tenPlays', name: 'Persistente', desc: 'Jogue 10 vezes', condition: () => plays >= 10 },
-  { id: 'astolfoWin', name: 'Fã de Astolfo', desc: '3 Astolfos em linha', condition: () => lastLineIs(['Astolfo']) },
+  { id: 'jackpotAstolfo', name: 'Jackpot de Astolfo', desc: 'Jackpot com Astolfo', condition: () => lastJackpotWas('Astolfo') },
+  { id: 'jackpotFelix', name: 'Jackpot de Felix', desc: 'Jackpot com Felix', condition: () => lastJackpotWas('Felix') },
+  { id: 'jackpotHaku', name: 'Jackpot de Haku', desc: 'Jackpot com Haku', condition: () => lastJackpotWas('Haku') },
+  { id: 'jackpotHideri', name: 'Jackpot de Hideri', desc: 'Jackpot com Hideri', condition: () => lastJackpotWas('Hideri') },
+  { id: 'jackpotNagisa', name: 'Jackpot de Nagisa', desc: 'Jackpot com Nagisa', condition: () => lastJackpotWas('Nagisa') },
+  { id: 'jackpotRimuru', name: 'Jackpot de Rimuru', desc: 'Jackpot com Rimuru', condition: () => lastJackpotWas('Rimuru') },
 ];
 
 function lastLineIs(symbolsArray) {
@@ -149,6 +174,18 @@ function lastLineIs(symbolsArray) {
     document.getElementById("r3"),
   ];
   return reels.every(reel => reel.innerHTML.includes(symbolsArray[0]));
+}
+
+function lastJackpotWas(symbolName) {
+  const reels = [
+    document.getElementById("r1"),
+    document.getElementById("r2"),
+    document.getElementById("r3"),
+    document.getElementById("r4"),
+    document.getElementById("r5"),
+    document.getElementById("r6"),
+  ];
+  return reels.every(reel => reel.innerHTML.includes(symbolName));
 }
 
 function getUnlockedAchievements() {

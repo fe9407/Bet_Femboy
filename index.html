@@ -1,86 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino Femboy</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cassino Femboy</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
+        <div class="logo">
+            <img src="logo.png" alt="Cassino Femboy">
+        </div>
         <nav>
-            <div class="logo">🎰 Femboy Cassino</div>
-            <ul class="menu">
-                <li>Cassino</li>
-                <li>Esportes</li>
+            <ul>
+                <li><a href="inicio.html">Início</a></li>
+                <li><a href="jogos.html">Jogos</a></li>
+                <li><a href="loja.html">Loja</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><button class="login-btn" id="loginBtn">Login</button></li>
             </ul>
-            <div class="auth-buttons">
-                <button class="login">Entrar</button>
-                <button class="register">Cadastrar-se</button>
-            </div>
         </nav>
     </header>
 
-    <aside>
-        <h3>Casino</h3>
-        <ul>
-            <li>Cassino ao vivo</li>
-            <li>Bac Bo</li>
-            <li>Jogos Slots</li>
-            <li>Fortune Tiger</li>
-            <li>Aviator</li>
-            <li>Roleta Brasileira</li>
-            <li>Roulette - Evolution</li>
-            <li>Football Studio</li>
-            <li>Mines</li>
-            <li>Blackjack ao vivo</li>
-        </ul>
-        <h3>Esportes</h3>
-        <ul>
-            <li>Jogos ao Vivo</li>
-            <li>E-Sports</li>
-        </ul>
-        <h3>Popular</h3>
-        <ul>
-            <li>Brasileiro Série A</li>
-            <li>Brasileiro Série B</li>
-            <li>Premier League</li>
-            <li>Champions League</li>
-        </ul>
-    </aside>
+    <!-- Tela de Cadastro Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Cadastro de Usuário</h2>
+            <form id="registerForm">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" required>
 
-    <main>
-        <section class="banner">
-            <h1>A cada voo uma emoção diferente!</h1>
-            <p>Aventuras sem limites aguardam você no mundo do aviator!</p>
-            <button class="play-now">Jogue Agora!</button>
-        </section>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-        <section class="categories">
-            <button>Esportes</button>
-            <button>Esportes ao Vivo</button>
-            <button>Cassino</button>
-            <button>Cassino ao Vivo</button>
-            <button>E-Sports</button>
-            <button>Fortune Tiger</button>
-            <button>Aviator</button>
-            <button>Mines</button>
-            <button>Fortune Rabbit</button>
-        </section>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
 
-        <section class="games">
-            <h2>Jogos Femboy</h2>
-            <div class="games-grid">
-                <a href="jogos/Roleta/index.html" class="game">Roleta Femboy</a>
-                <a href="jogos/Poker/index.html" class="game">Poker Femboy</a>
-                <div class="game">Fortune Tree</div>
-                <div class="game">Fortune Ox</div>
-                <div class="game">Fortune Muse</div>
-                <div class="game">Fortune Rabbit</div>
-            </div>
-        </section>
-    </main>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="banner">
+        <h1>Bem-vindo ao Cassino Femboy!</h1>
+        <p>Jogue e ganhe com estilo!</p>
+        <button onclick="window.location.href='jogos.html'">Começar Agora</button>
+    </section>
+
+    <section class="games">
+        <h2>Jogos Populares</h2>
+        <div class="game-card">
+            <img src="game1.png" alt="Jogo 1">
+            <h3>Roleta Femboy</h3>
+            <button onclick="window.location.href='jogos/Roleta/index.html'">Jogar</button>
+        </div>
+        <div class="game-card">
+            <img src="game2.png" alt="Jogo 2">
+            <h3>Spin roulete</h3>
+            <button onclick="window.location.href='jogos/SpinRoulette/index.html'">Jogar</button>
+        </div>
+        <div class="game-card">
+            <img src="game3.png" alt="Jogo 3">
+            <h3>Pôquer Femboy</h3>
+            <button onclick="window.location.href='jogos/Poker/index.html'">Jogar</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Cassino Femboy. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Arquivo JS separado -->
+    <script src="script.js"></script>
 </body>
 </html>
