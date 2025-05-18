@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta de Cassino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Roleta de Cassino</h1>
+    
+    <div class="balance">Saldo: $<span id="balance">1000</span></div>
+    
+    <div class="roulette-table">
+        <!-- Linha 1 (0) -->
+        <div class="number green" data-number="0">0</div>
+        <div class="bet-section" style="grid-column: span 4;" data-bet="1st-12" data-range="1-12">1st 12</div>
+        <div class="bet-section" style="grid-column: span 4;" data-bet="2nd-12" data-range="13-24">2nd 12</div>
+        <div class="bet-section" style="grid-column: span 4;" data-bet="3rd-12" data-range="25-36">3rd 12</div>
+        
+        <!-- Linha 2 -->
+        <div class="number red" data-number="1">1</div>
+        <div class="number black" data-number="2">2</div>
+        <div class="number red" data-number="3">3</div>
+        <div class="bet-section" data-bet="1-18" data-range="1-18">1 to 18</div>
+        <div class="bet-section red" data-bet="even" data-type="even">EVEN</div>
+        <div class="bet-section black" data-bet="red" data-color="red">🔴</div>
+        <div class="bet-section black" data-bet="black" data-color="black">⚫</div>
+        <div class="bet-section red" data-bet="odd" data-type="odd">ODD</div>
+        <div class="bet-section" data-bet="19-36" data-range="19-36">19 to 36</div>
+        
+        <!-- Linha 3 -->
+        <div class="number black" data-number="4">4</div>
+        <div class="number red" data-number="5">5</div>
+        <div class="number black" data-number="6">6</div>
+        <div class="bet-section" data-bet="2to1-1" data-column="1">2 to 1</div>
+        <div class="number red" data-number="7">7</div>
+        <div class="number black" data-number="8">8</div>
+        <div class="number red" data-number="9">9</div>
+        <div class="bet-section" data-bet="2to1-2" data-column="2">2 to 1</div>
+        <div class="number black" data-number="10">10</div>
+        <div class="number red" data-number="11">11</div>
+        <div class="number black" data-number="12">12</div>
+        <div class="bet-section" data-bet="2to1-3" data-column="3">2 to 1</div>
+        
+        <!-- Linha 4 -->
+        <div class="number black" data-number="13">13</div>
+        <div class="number red" data-number="14">14</div>
+        <div class="number black" data-number="15">15</div>
+        <div class="number red" data-number="16">16</div>
+        <div class="number black" data-number="17">17</div>
+        <div class="number red" data-number="18">18</div>
+        <div class="number red" data-number="19">19</div>
+        <div class="number black" data-number="20">20</div>
+        <div class="number red" data-number="21">21</div>
+        <div class="number black" data-number="22">22</div>
+        <div class="number red" data-number="23">23</div>
+        <div class="number black" data-number="24">24</div>
+        
+        <!-- Linha 5 -->
+        <div class="number red" data-number="25">25</div>
+        <div class="number black" data-number="26">26</div>
+        <div class="number red" data-number="27">27</div>
+        <div class="number black" data-number="28">28</div>
+        <div class="number red" data-number="29">29</div>
+        <div class="number black" data-number="30">30</div>
+        <div class="number red" data-number="31">31</div>
+        <div class="number black" data-number="32">32</div>
+        <div class="number red" data-number="33">33</div>
+        <div class="number black" data-number="34">34</div>
+        <div class="number red" data-number="35">35</div>
+        <div class="number black" data-number="36">36</div>
+    </div>
+    
+    <div class="wheel">
+        <div class="wheel-center"></div>
+        <!-- Os números da roleta serão gerados por JavaScript -->
+    </div>
+    
+    <div class="result" id="result"></div>
+    
+    <div class="controls">
+        <input type="number" class="bet-amount" id="betAmount" min="1" value="10">
+        <button id="spinButton">Girar Roleta</button>
+        <button id="clearBets">Limpar Apostas</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

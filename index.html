@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="inicio.html">Início</a></li>
-                <li><a href="jogos.html">Jogos</a></li>
+                <li><a href="jogos/jogos.html">Jogos</a></li>
                 <li><a href="loja.html">Loja</a></li>
                 <li><a href="ranking.html">Ranking</a></li>
                 <li><a href="configuracoes.html">Configurações</a></li>
@@ -24,22 +24,43 @@
         </nav>
     </header>
 
-    <!-- Tela de Cadastro Modal -->
+    <!-- Modal de Login -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            <h2>Cadastro de Usuário</h2>
-            <form id="registerForm">
-                <label for="username">Nome de usuário:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Cadastrar</button>
+            <h2>Log In!</h2>
+            <form>
+                <label class="field" for="logemail">
+                    <span class="input-icon">@</span>
+                    <input
+                        autocomplete="off"
+                        id="logemail"
+                        placeholder="Email"
+                        class="input-field"
+                        name="logemail"
+                        type="email"
+                    />
+                </label>
+                <label class="field" for="logpass">
+                    <svg
+                        class="input-icon"
+                        viewBox="0 0 500 500"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"
+                        ></path>
+                    </svg>
+                    <input
+                        id="logpass"
+                        placeholder="Password"
+                        class="input-field"
+                        name="logpass"
+                        type="password"
+                    />
+                </label>
+                <button class="btn" type="button">Login</button>
+                <a class="btn-link">Forgot your password?</a>
             </form>
         </div>
     </div>
@@ -47,7 +68,7 @@
     <section class="banner">
         <h1>Bem-vindo ao Cassino Femboy!</h1>
         <p>Jogue e ganhe com estilo!</p>
-        <button onclick="window.location.href='jogos.html'">Começar Agora</button>
+        <button onclick="window.location.href='jogos/jogos.html'">Começar Agora</button>
     </section>
 
     <section class="games">
@@ -69,11 +90,6 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Cassino Femboy. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Arquivo JS separado -->
     <script src="script.js"></script>
 </body>
 </html>

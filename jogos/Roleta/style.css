@@ -1,9 +1,12 @@
 body {
+  background: url('imagens/undefined_-_Imgur.png') no-repeat center center fixed;
+  background-size: cover;
   background-color: #1a1a2e;
   color: #f8d5ff;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   text-align: center;
   padding: 20px;
+  
 }
 
 h1 {
@@ -158,7 +161,7 @@ button:hover {
 
 /* Estiliza a parte que arrasta */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c084fc, #a855f7); /* Gradiente roxo */
+  background: linear-gradient(180deg, #1a1a2e, #1a1a2e); /* Gradiente roxo */
   border-radius: 10px;
 }
 
